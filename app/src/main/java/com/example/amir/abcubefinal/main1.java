@@ -586,8 +586,6 @@ public void clearall(){
             };
             Mysingleton.getInstance(main1.this).addToRequest(stringRequest);
 
-        } else if(pass_no == pass_no){
-            Toast.makeText(main1.this, "passport number already exist", Toast.LENGTH_LONG).show();
         }
         else {
             Toast.makeText(main1.this, "please fill your detail properly", Toast.LENGTH_LONG).show();
