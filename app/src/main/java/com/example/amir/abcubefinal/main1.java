@@ -1,7 +1,9 @@
 package com.example.amir.abcubefinal;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -584,7 +586,7 @@ public void clearall(){
             };
             Mysingleton.getInstance(main1.this).addToRequest(stringRequest);
 
-        } else if(pass_no==pass_no){
+        } else if(pass_no == pass_no){
             Toast.makeText(main1.this, "passport number already exist", Toast.LENGTH_LONG).show();
         }
         else {
@@ -715,6 +717,25 @@ public void clearall(){
         byte[] byte_arr = bos.toByteArray();
         String encoded = Base64.encodeToString(byte_arr, Base64.DEFAULT); //appendLog(file);
         return encoded;
+    }
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Exit Abcube?");
+        builder.setMessage("Do you want to exit? ");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                finish();
+                main1.super.onBackPressed();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+            }
+        });
+        builder.show();
     }
 }
 
