@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ABcube</string>
+
+<string-array name="Marital_status">
+    <item>Single</item>
+    <item>Marriage</item>
+    <item>Divorced</item>
+</string-array>
+</resources>
