@@ -6,7 +6,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.amir.abcubefinal.main">
+    tools:context="com.example.amir.abcubefinal.main1">
 
 
     <ScrollView
@@ -121,7 +121,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/personal_details"
-                android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
 
@@ -131,7 +130,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -150,12 +149,13 @@
                         <EditText
                             android:id="@+id/firstname"
                             style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                            android:hint="firstname"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                            android:hint="Firstname"
                             android:inputType="textCapSentences|textPersonName"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
 
                     </LinearLayout>
@@ -178,8 +178,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                            android:hint="lastname"
+                            android:hint="Lastname"
                             android:inputType="textCapSentences|textPersonName"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -202,6 +203,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Nepal"
                             android:inputType="textCapSentences|textAutoComplete"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -215,15 +217,16 @@
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:text="City" />
+                            android:text="Address" />
 
                         <EditText
                             android:id="@+id/city"
                             style="@android:style/Widget.DeviceDefault.AutoCompleteTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Kathmandu"
-                            android:inputType="textCapSentences|textAutoComplete" />
+                            android:inputType="textCapSentences|textAutoComplete"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -243,8 +246,9 @@
                             android:id="@+id/date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="yyyy-mm-dd"
                             android:digits="0123456789-"
+                            android:hint="YYYY-MM-DD"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -265,6 +269,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textEmailAddress|textWebEmailAddress"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -286,34 +291,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="phone"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/linear7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/linear6"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:text="Course" />
-
-                        <EditText
-                            android:id="@+id/course"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            tools:layout_marginLeft="30dp" />
-                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linear8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/linear7"
+                        android:layout_below="@+id/linear6"
                         android:orientation="horizontal">
 
                         <TextView
@@ -326,6 +313,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text|textCapSentences"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -356,6 +344,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:enabled="true"
+                                android:imeOptions="normal"
                                 android:text="Male"
                                 tools:layout_marginLeft="40dp" />
 
@@ -386,24 +375,22 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 
-                        <EditText
-                            android:id="@+id/status"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linear11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/linear10"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/linear9"
+                        android:layout_marginTop="30dp"
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/textView"
                             android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:text="Citizenship" />
+                            android:layout_height="50dp"
+                            android:text="Country of Citizenship" />
 
 
                         <EditText
@@ -411,9 +398,9 @@
                             style="@android:style/Widget.DeviceDefault.AutoCompleteTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Nepali"
                             android:inputType="text|textCapSentences|textAutoComplete"
                             android:singleLine="true"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -427,13 +414,14 @@
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:text="Passport No." />
+                            android:text="Passport No" />
 
                         <EditText
                             android:id="@+id/pass_no"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -445,7 +433,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="110dp"
+                            android:layout_width="100dp"
                             android:layout_height="26dp"
                             android:text="Passport Expiry" />
 
@@ -453,7 +441,8 @@
                             android:id="@+id/pass_expiry"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="yyyy-mm-dd"
+                            android:hint="YYYY-MM-DD"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -467,13 +456,14 @@
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:text="Visa no." />
+                            android:text="Visa No" />
 
                         <EditText
                             android:id="@+id/visa_no"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
@@ -494,7 +484,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="YYYY-MM-DD"
-                            android:inputType="none|date" />
+                            android:background="@drawable/bg_edittext"
+                            android:inputType="none|date"
+                            tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -515,8 +507,58 @@
                             android:layout_height="wrap_content"
                             android:hint="YYYY-MM-DD"
                             android:inputType="date"
+                            android:background="@drawable/bg_edittext"
                             tools:layout_marginLeft="30dp" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/currentschol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linear15"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Current School" />
+
+                        <EditText
+                            android:id="@+id/currentSchool"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                            android:inputType="textCapSentences|textPersonName"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/coursefinish"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/currentschol"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="105dp"
+                            android:text="Course Finish Date" />
+
+                        <EditText
+                            android:id="@+id/coursedate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="date"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp" />
+
+                    </LinearLayout>
+
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 
@@ -543,7 +585,7 @@
                     android:elevation="1dp"
                     android:gravity="center_horizontal"
                     android:paddingTop="15dp"
-                    android:text="ENGLISH TEST"
+                    android:text="ENGLISH PROFICIENCY"
                     android:textColor="@android:color/white"
                     android:textColorLink="@android:color/white"
                     android:textSize="18sp"
@@ -587,7 +629,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="TOFEL"
-                            android:inputType="textCapCharacters|textCapWords" />
+                            android:inputType="textCapCharacters|textCapWords"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -606,11 +650,11 @@
                             android:id="@+id/testdate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
                             android:autoText="true"
-                            android:hint="yyyy-mm-dd"
+                            android:hint="YYYY-MM-DD"
                             android:inputType="date"
-                            android:paddingLeft="20dp" />
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -629,7 +673,9 @@
                             android:id="@+id/testreport"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number" />
+                            android:inputType="number"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -648,7 +694,9 @@
                             android:id="@+id/overallresult"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number|numberDecimal" />
+                            android:inputType="number|numberDecimal"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -667,7 +715,9 @@
                             android:id="@+id/reading"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number|numberDecimal" />
+                            android:inputType="number|numberDecimal"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -686,7 +736,9 @@
                             android:id="@+id/writing"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number|numberDecimal" />
+                            android:inputType="number|numberDecimal"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -705,7 +757,9 @@
                             android:id="@+id/listening"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number|numberDecimal" />
+                            android:inputType="number|numberDecimal"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -724,7 +778,9 @@
                             android:id="@+id/speaking"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number|numberDecimal" />
+                            android:inputType="number|numberDecimal"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
 
@@ -750,7 +806,7 @@
                     android:elevation="1dp"
                     android:gravity="center_horizontal"
                     android:paddingTop="15dp"
-                    android:text="EDUCATIONAL BAKGROUND"
+                    android:text="EDUCATIONAL BACKGROUND"
                     android:textColor="@color/cardview_light_background"
                     android:textSize="18sp"
                     android:typeface="sans" />
@@ -816,6 +872,7 @@
                                 android:layout_height="wrap_content"
 
                                 android:inputType="textCapCharacters"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
 
@@ -836,6 +893,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number|numberDecimal"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
 
@@ -856,8 +914,9 @@
                                 android:id="@+id/schoolyear"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="yyyy"
+                                android:hint="YYYY"
                                 android:inputType="date"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -914,7 +973,9 @@
                                 android:id="@+id/highschoolname"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:inputType="textCapSentences" />
+                                android:inputType="textCapSentences"
+                                android:background="@drawable/bg_edittext"
+                                tools:layout_marginLeft="30dp"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -934,6 +995,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number|numberDecimal"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
 
@@ -953,9 +1015,10 @@
                                 android:id="@+id/highscchoolyear"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="yyyy"
+                                android:hint="YYYY"
                                 android:digits="0123456789"
                                 android:inputType="date"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
 
@@ -1012,6 +1075,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="textCapSentences"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
 
@@ -1032,6 +1096,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number|numberDecimal"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
 
@@ -1050,11 +1115,12 @@
 
                             <EditText
                                 android:id="@+id/bacheloryear"
-                                android:layout_width="228dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="30dp"
-                                android:hint="yyyy"
-                                android:inputType="date" />
+                                android:hint="YYYY"
+                                android:inputType="date"
+                                android:background="@drawable/bg_edittext"
+                                tools:layout_marginLeft="30dp"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -1110,6 +1176,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="textCapSentences"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
 
@@ -1130,6 +1197,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number|numberDecimal"
+                                android:background="@drawable/bg_edittext"
                                 tools:layout_marginLeft="30dp" />
                         </LinearLayout>
 
@@ -1151,10 +1219,11 @@
                                 android:id="@+id/masteryear"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="30dp"
-                                android:hint="yyyy"
+                                android:hint="YYYY"
                                 android:digits="0123456789"
-                                android:inputType="date" />
+                                android:inputType="date"
+                                android:background="@drawable/bg_edittext"
+                                tools:layout_marginLeft="30dp"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -1225,7 +1294,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textCapSentences"
-                            android:password="false" />
+                            android:password="false"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1244,7 +1315,9 @@
                             android:id="@+id/relation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textCapSentences" />
+                            android:inputType="textCapSentences"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1264,7 +1337,9 @@
                             style="@style/Widget.AppCompat.AutoCompleteTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textCapSentences" />
+                            android:inputType="textCapSentences"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1277,13 +1352,15 @@
                         <TextView
                             android:layout_width="110dp"
                             android:layout_height="wrap_content"
-                            android:text="Phone no" />
+                            android:text="Phone No" />
 
                         <EditText
                             android:id="@+id/phone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="phone" />
+                            android:inputType="phone"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -1302,7 +1379,9 @@
                             android:id="@+id/emailaddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textEmailAddress|textWebEmailAddress" />
+                            android:inputType="textEmailAddress|textWebEmailAddress"
+                            android:background="@drawable/bg_edittext"
+                            tools:layout_marginLeft="30dp"/>
                     </LinearLayout>
                 </RelativeLayout>
 

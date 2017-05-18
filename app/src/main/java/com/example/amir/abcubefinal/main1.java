@@ -1,9 +1,7 @@
 package com.example.amir.abcubefinal;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -49,10 +47,10 @@ import java.util.Map;
 
 
 public class main1 extends AppCompatActivity implements View.OnClickListener {
-    String server_url = "http://192.168.0.101/adcube/android.php";
+    String server_url = "http://ranjansitikhu.com.np/abcube.php";
     ImageView ImageView;
     ViewGroup viewGroup;
-    Button buttonCamera, buttonGallery,Clear;
+    Button buttonCamera, buttonGallery, Clear;
     File file;
     Uri uri;
     String date;
@@ -64,7 +62,8 @@ public class main1 extends AppCompatActivity implements View.OnClickListener {
     String Selecteditem;
 
     //personal details
-    EditText Firstname, Lastname, Country, Personal_Email, Phone, Course, Nationality, Citizenship, Passport_no, Visa_no, Pass_expiry, Visa_expiry, City, Visa_Granted;
+    EditText Firstname, Lastname, Country, Personal_Email, Phone, Course, Nationality, Citizenship, Passport_no, Visa_no,
+            Pass_expiry, Visa_expiry, City, Visa_Granted,courseedate,currentschool;
     DatePicker Dob;
     Button Submit;
     RadioButton Gender;
@@ -73,7 +72,7 @@ public class main1 extends AppCompatActivity implements View.OnClickListener {
     DatePickerDialog toDatePickerDialog;
     DatePickerDialog tovisagrantedDialog;
     DatePickerDialog topassexpiry;
-    DatePickerDialog totestdate, tosyear, tohyear, tobyear, tomyear;
+    DatePickerDialog totestdate, tosyear, tohyear, tobyear, tomyear,coursefinishdialog;
 
 
     SimpleDateFormat dateFormatter, dateFormatter2;
@@ -95,18 +94,23 @@ public class main1 extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout1);
+        System.out.println("enteron");
         //for date picker
         dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         dateFormatter2 = new SimpleDateFormat("yyyy", Locale.US);
         findViewsById();
         setDateTimeField();
     }
+
     public void findViewsById() {
         fromDateEtxt = (EditText) findViewById(R.id.date);
         fromDateEtxt.setInputType(InputType.TYPE_NULL);
 
         toDateEtxt = (EditText) findViewById(R.id.visa_expiry);
         toDateEtxt.setInputType(InputType.TYPE_NULL);
+
+        courseedate = (EditText) findViewById(R.id.coursedate);
+        courseedate.setInputType(InputType.TYPE_NULL);
 
         Visa_Granted = (EditText) findViewById(R.id.visa_grant);
         Visa_Granted.setInputType(InputType.TYPE_NULL);
@@ -132,8 +136,8 @@ public class main1 extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void setDateTimeField() {
-        fromDateEtxt.setOnClickListener(this); //for dob
-        toDateEtxt.setOnClickListener(this);  //for visa expiry
+        fromDateEtxt.setOnClickListener(this);
+        toDateEtxt.setOnClickListener(this);
         Visa_Granted.setOnClickListener(this);
         Pass_expiry.setOnClickListener(this);
         Testdate.setOnClickListener(this);
@@ -141,6 +145,7 @@ public class main1 extends AppCompatActivity implements View.OnClickListener {
         Highschoolyear.setOnClickListener(this);
         Bacheloryear.setOnClickListener(this);
         Masteryear.setOnClickListener(this);
+        courseedate.setOnClickListener(this);
 
 
         Calendar newCalendar = Calendar.getInstance();
@@ -163,6 +168,17 @@ public class main1 extends AppCompatActivity implements View.OnClickListener {
             }
 
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
+        coursefinishdialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, monthOfYear, dayOfMonth);
+                courseedate.setText(dateFormatter.format(newDate.getTime()));
+            }
+
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+
 
         tovisagrantedDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
@@ -288,6 +304,8 @@ public class main1 extends AppCompatActivity implements View.OnClickListener {
         Citizenship = (EditText) findViewById(R.id.citizenship);
         Passport_no = (EditText) findViewById(R.id.pass_no);
         Visa_no = (EditText) findViewById(R.id.visa_no);
+        currentschool = (EditText)findViewById(R.id.currentSchool);
+
 
 
         //educational background
@@ -375,103 +393,171 @@ public class main1 extends AppCompatActivity implements View.OnClickListener {
             case R.id.masteryear:
                 tomyear.show();
                 break;
+            case R.id.coursedate:
+                coursefinishdialog.show();
+                break;
         }
     }
-public void clearall(){
-    ImageView.setImageDrawable(null);
-    Firstname.setText("");
-    Lastname.setText("");
-    Country.setText("");
-    City.setText("");
-    Email.setText("");
-    fromDateEtxt.setText("");
-    Personal_Email.setText("");
-    Phone.setText("");
-    Phone_no.setText("");
-    Course.setText("");
-    Nationality.setText("");
-    Citizenship.setText("");
-    Passport_no.setText("");
-    Pass_expiry.setText("");
-    Visa_no.setText("");
-    Visa_Granted.setText("");
-    toDateEtxt.setText("");
-    samplespinner.setSelection(0);
-    Testname.setText("");
-    Testdate.setText("");
-    Testreport.setText("");
-    Overallresult.setText("");
-    Reading.setText("");
-    Writing.setText("");
-    Listening.setText("");
-    Speaking.setText("");
-    Schoolname.setText("");
-    Schoolmarks.setText("");
-    Schoolyear.setText("");
-    Highschoolname.setText("");
-    Highschoolmarks.setText("");
-    Highschoolyear.setText("");
-    Bachelorname.setText("");
-    Bachelormarks.setText("");
-    Bacheloryear.setText("");
-    Mastername.setText("");
-    Mastermarks.setText("");
-    Masteryear.setText("");
-    Name.setText("");
-    Relationship.setText("");
-    Address.setText("");
-    Phone_no.setText("");
-    Email.setText("");
 
+    public void clearall() {
+        Firstname.setText("");
+        Lastname.setText("");
+        Country.setText("");
+        City.setText("");
+        Email.setText("");
+        Personal_Email.setText("");
+        Phone.setText("");
+        Phone_no.setText("");
+        Nationality.setText("");
+        Citizenship.setText("");
+        Passport_no.setText("");
+        Pass_expiry.setText("");
+        Visa_no.setText("");
+        Visa_Granted.setText("");
+        toDateEtxt.setText("");
+        fromDateEtxt.setText("");
+        currentschool.setText("");
+        courseedate.setText("");
+        samplespinner.setSelection(0);
+        Testname.setText("");
+        Testdate.setText("");
+        Testreport.setText("");
+        Overallresult.setText("");
+        Reading.setText("");
+        Writing.setText("");
+        Listening.setText("");
+        Speaking.setText("");
+        Schoolname.setText("");
+        Schoolmarks.setText("");
+        Schoolyear.setText("");
+        Highschoolname.setText("");
+        Highschoolmarks.setText("");
+        Highschoolyear.setText("");
+        Bachelorname.setText("");
+        Bachelormarks.setText("");
+        Bacheloryear.setText("");
+        Mastername.setText("");
+        Mastermarks.setText("");
+        Masteryear.setText("");
+        Name.setText("");
+        Relationship.setText("");
+        Address.setText("");
+        Phone_no.setText("");
+        Email.setText("");
+        ImageView.setImageDrawable(null);
 
+    }
 
-}
     public void submitall() {
-        final String first_name, last_name, country, city, dob, personal_email, course, citizenship, nationality, pass_no,
-                visa_no, visa_expiry, phone_no, contact, address, email, phone, relation, pass_expiry, gender, image, visa_grant, ephone;
+        final String first_name, last_name, country, personal_address, dob, personal_email, course, citizenship, nationality, pass_no,
+                visa_no, visa_expiry, phone_no, contact, address, email, phone, relation, pass_expiry, gender, CFD, CS, visa_grant, ephone;
 
-
-//for mail validation defining pattern
-
+        //String PATTERN = "([a-zA-Z]{3,30})+";
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-        email = Email.getText().toString().trim();
-        personal_email = Personal_Email.getText().toString().trim();
-// onClick of button perform this simplest code.
-        if (email.matches(emailPattern)) {
-        } else {
-            Toast.makeText(main1.this, "Invalid email address", Toast.LENGTH_SHORT).show();
+
+        first_name = Firstname.getText().toString();
+
+        if (first_name.isEmpty()) {
+            Firstname.setError("Enter Your Firstname");
+            return;
         }
 
 
-//email validation
-        first_name = Firstname.getText().toString();
         last_name = Lastname.getText().toString();
+        if (last_name.isEmpty()) {
+            Lastname.setError("Enter Your Lastname");
+            return;
+        }
+
+
+        personal_address = City.getText().toString();
+        if (personal_address.isEmpty()) {
+            City.setError("Enter Your Firstname");
+            return;
+        }
         country = Country.getText().toString();
-        city = City.getText().toString();
+        if (country.isEmpty()) {
+            Country.setError("Enter Your Country Name");
+            return;
+        }
+
+
+        personal_email = Personal_Email.getText().toString();
+        if (personal_email.isEmpty() || !personal_email.matches(emailPattern)) {
+            Personal_Email.setError("Enter Valid Email Address");
+            return;
+        }
+
+        phone_no = Phone_no.getText().toString();
+
         dob = fromDateEtxt.getText().toString();
-        //image = ImageView.toString();
-        phone_no = Phone.getText().toString();
-        course = Course.getText().toString();
+
+
         nationality = Nationality.getText().toString();
+        if (nationality.isEmpty()) {
+            Nationality.setError("This field is required");
+            return;
+        }
+
+
         citizenship = Citizenship.getText().toString();
+        if (citizenship.isEmpty()) {
+            Citizenship.setError("This field is required");
+            return;
+        }
+
+
         pass_no = Passport_no.getText().toString();
+        if (pass_no.isEmpty()) {
+            Passport_no.setError("Enter Your Passport No");
+            return;
+        }
         pass_expiry = Pass_expiry.getText().toString();
         visa_no = Visa_no.getText().toString();
         visa_grant = Visa_Granted.getText().toString();
         visa_expiry = toDateEtxt.getText().toString();
         gender = Gender.getText().toString();
+        CFD = courseedate.getText().toString();
+        CS = currentschool.getText().toString();
 
 
         //emergency contact
         contact = Name.getText().toString();
+        if (contact.isEmpty()) {
+            Name.setError("Enter Your Contact Name");
+            return;
+        }
+
+
+        email = Email.getText().toString();
+        if (email.isEmpty() || !personal_email.matches(emailPattern)) {
+            Email.setError("Enter Valid Email Address");
+            return;
+        }
+
+
         address = Address.getText().toString();
-        ephone = Phone_no.getText().toString();
+        if (address.isEmpty()) {
+            Address.setError("Enter Your Address");
+            return;
+        }
+        phone = Phone_no.getText().toString();
+        if (phone.isEmpty() || !personal_email.matches(emailPattern)) {
+            Phone.setError("Enter Your  Phone No");
+            return;
+        }
         relation = Relationship.getText().toString();
+        if (relation.isEmpty()) {
+            Relationship.setError("Enter Valid Email Address");
+            return;
+        }
 
 
         //english test
         final String testname, testdate, testreport, overallresult, reading, writing, listening, speaking;
         testname = Testname.getText().toString();
+
+
         testreport = Testreport.getText().toString();
         overallresult = Overallresult.getText().toString();
         reading = Reading.getText().toString();
@@ -485,24 +571,33 @@ public void clearall(){
         final String schoolname, schoolmarks, schoolyear, highschoolname, highschoolmarks,
                 highshoolyear, bachelorname, bachelormarks, bacheloryear, mastername, mastermarks, masteryear;
         schoolname = Schoolname.getText().toString();
+
+
         schoolmarks = Schoolmarks.getText().toString();
         schoolyear = Schoolyear.getText().toString();
         highschoolname = Highschoolname.getText().toString();
+
+
         highschoolmarks = Highschoolmarks.getText().toString();
         highshoolyear = Highschoolyear.getText().toString();
         bachelorname = Bachelorname.getText().toString();
+
+
         bachelormarks = Bachelormarks.getText().toString();
         bacheloryear = Bacheloryear.getText().toString();
         mastername = Mastername.getText().toString();
+
+
         mastermarks = Mastermarks.getText().toString();
         masteryear = Masteryear.getText().toString();
 
 
         if (!first_name.isEmpty() && !last_name.isEmpty() && !country.isEmpty() && !personal_email.isEmpty() && !phone_no.isEmpty()
-                && !course.isEmpty() && !nationality.isEmpty() && !citizenship.isEmpty() && !pass_no.isEmpty() && !visa_no.isEmpty()
-                && !visa_expiry.isEmpty() && !contact.isEmpty() && !email.isEmpty() && !ephone.isEmpty() && !relation.isEmpty()) {
+                 && !nationality.isEmpty() && !citizenship.isEmpty() && !pass_no.isEmpty() && !visa_no.isEmpty()
+                && !visa_expiry.isEmpty() && !contact.isEmpty() && !email.isEmpty() && !phone.isEmpty() && !relation.isEmpty()) {
 
 
+        }
             StringRequest stringRequest = new StringRequest(Request.Method.POST, server_url, new Response.Listener<String>() {
 
                 @Override
@@ -524,19 +619,18 @@ public void clearall(){
                 @Override
                 public void onErrorResponse(VolleyError error) {
 
-                    Toast.makeText(main1.this, error.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(main1.this, "Enter the image", Toast.LENGTH_SHORT).show();
                 }
 
             }) {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<String, String>();
-
+                    params.put("first_name", first_name);
                     params.put("country", country);
                     params.put("dob", dob);
                     params.put("personal_email", personal_email);
                     params.put("mobile", phone_no);
-                    params.put("course", course);
                     params.put("nationality", nationality);
                     params.put("citizenship", citizenship);
                     params.put("pass_no", pass_no);
@@ -547,9 +641,10 @@ public void clearall(){
                     params.put("gender", gender);
                     params.put("status", Selecteditem);
                     params.put("image", imageToString(bitmap));
-                    params.put("first_name", first_name);
+                    params.put("CFD", CFD);
+                    params.put("CS", CS);
                     params.put("last_name", last_name);
-                    params.put("personal_address", city);
+                    params.put("personal_address", personal_address);
 
                     //educational background
                     params.put("schoolname", schoolname);
@@ -579,19 +674,26 @@ public void clearall(){
                     params.put("contact", contact);
                     params.put("relation", relation);
                     params.put("address", address);
-                    params.put("phone", ephone);
+                    params.put("phone", phone);
                     params.put("email", email);
                     return params;
                 }
+
+
             };
+
+
             Mysingleton.getInstance(main1.this).addToRequest(stringRequest);
-
-        }
-        else {
-            Toast.makeText(main1.this, "please fill your detail properly", Toast.LENGTH_LONG).show();
         }
 
-    }
+
+
+
+
+
+
+
+
     public void ClickImageFromCamera() {
 
         CamIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
@@ -715,25 +817,6 @@ public void clearall(){
         byte[] byte_arr = bos.toByteArray();
         String encoded = Base64.encodeToString(byte_arr, Base64.DEFAULT); //appendLog(file);
         return encoded;
-    }
-    @Override
-    public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        builder.setTitle("Exit Abcube?");
-        builder.setMessage("Do you want to exit? ");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                finish();
-                main1.super.onBackPressed();
-            }
-        });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-
-            }
-        });
-        builder.show();
     }
 }
 
